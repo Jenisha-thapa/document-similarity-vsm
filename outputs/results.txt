@@ -1,0 +1,82 @@
+==============================================================================
+1) DOCUMENTS LOADED AND PRE-PROCESSED
+==============================================================================
+ ID                Document  Words (raw)  Tokens (clean)
+ D1 artificial_intelligence        13004            7148
+ D2    association_football         7661            3847
+ D3              basketball         9646            5069
+ D4          climate_change         9726            5441
+ D5                 cricket         9825            4752
+ D6           deep_learning         8371            5059
+ D7               document1           16              12
+ D8               document2           18              13
+ D9        machine_learning         8348            4988
+D10        renewable_energy         8767            5085
+D11             solar_power         4380            2484
+
+==============================================================================
+2) VECTOR SPACE MODEL
+==============================================================================
+Vocabulary size          : 8493 unique terms
+TF-IDF matrix shape      : 11 documents x 8493 terms
+
+==============================================================================
+3) COSINE SIMILARITY MATRIX (1.000 = identical direction, 0 = no shared terms)
+==============================================================================
+                               D1     D2     D3     D4     D5     D6     D7     D8     D9    D10    D11
+D1 artificial_intelligence  1.000  0.081  0.060  0.138  0.056  0.452  0.281  0.255  0.552  0.149  0.109
+D2 association_football     0.081  1.000  0.411  0.049  0.287  0.037  0.004  0.002  0.046  0.041  0.029
+D3 basketball               0.060  0.411  1.000  0.035  0.241  0.035  0.003  0.007  0.040  0.029  0.026
+D4 climate_change           0.138  0.049  0.035  1.000  0.032  0.055  0.022  0.002  0.057  0.313  0.173
+D5 cricket                  0.056  0.287  0.241  0.032  1.000  0.029  0.003  0.005  0.032  0.024  0.018
+D6 deep_learning            0.452  0.037  0.035  0.055  0.029  1.000  0.511  0.407  0.571  0.048  0.036
+D7 document1                0.281  0.004  0.003  0.022  0.003  0.511  1.000  0.344  0.473  0.010  0.006
+D8 document2                0.255  0.002  0.007  0.002  0.005  0.407  0.344  1.000  0.465  0.005  0.002
+D9 machine_learning         0.552  0.046  0.040  0.057  0.032  0.571  0.473  0.465  1.000  0.046  0.030
+D10 renewable_energy        0.149  0.041  0.029  0.313  0.024  0.048  0.010  0.005  0.046  1.000  0.598
+D11 solar_power             0.109  0.029  0.026  0.173  0.018  0.036  0.006  0.002  0.030  0.598  1.000
+
+Top 5 most similar pairs
+  0.598   renewable_energy  <->  solar_power
+  0.571   deep_learning  <->  machine_learning
+  0.552   artificial_intelligence  <->  machine_learning
+  0.511   deep_learning  <->  document1
+  0.473   document1  <->  machine_learning
+Top 3 least similar pairs
+  0.002   document2  <->  solar_power
+  0.002   association_football  <->  document2
+  0.002   climate_change  <->  document2
+
+==============================================================================
+4) TOP 8 TF-IDF TERMS PER DOCUMENT
+==============================================================================
+artificial_intelligence:
+    intelligence, learning, artificial, machine, data, human, search, used
+association_football:
+    football, ball, game, players, fifa, team, association, cup
+basketball:
+    basketball, ball, players, nba, shot, basket, team, teams
+climate_change:
+    climate, warming, change, emissions, global, carbon, gases, greenhouse
+cricket:
+    cricket, ball, wicket, batter, innings, bowler, batters, overs
+deep_learning:
+    deep, learning, neural, networks, network, layer, recognition, speech
+document1:
+    learning, recognize, objects, classify, models, neural, networks, machine
+document2:
+    classification, algorithms, learn, machine, neural, networks, image, object
+machine_learning:
+    learning, machine, data, training, model, algorithms, models, artificial
+renewable_energy:
+    energy, renewable, solar, wind, power, electricity, water, fossil
+solar_power:
+    solar, power, electricity, energy, grid, storage, batteries, panels
+
+==============================================================================
+5) CHECKS
+==============================================================================
+Max difference vs scikit-learn : 1.55e-14   (PASS)
+Mean similarity, TF only       : 0.178
+Mean similarity, TF-IDF        : 0.141
+(IDF down-weights words that appear in many documents, so unrelated documents look less alike.)
